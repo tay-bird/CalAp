@@ -10,7 +10,10 @@ new project. Download the client secrets file.
 
 ## Usage
 
-Import the app with `from calap import CalAp` and initialize it with `calap = CalAp()`.
+Run the sample app by running `python test.py` from the CalAp directory.
+
+Import the app into your projectwith `from calap import CalAp` and initialize
+it with `calap = CalAp()`.
 
 ### list_calendars()
 Returns all calendars as a list of calendar objects.
