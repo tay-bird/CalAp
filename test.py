@@ -40,7 +40,23 @@ for event in events:
 
 print '\nadd_event'
 print '*********'
+event = {
+    'summary': 'Appointment',
+    'location': 'Somewhere',
+    'start': {
+             'dateTime': '2013-01-12T10:00:00.000-07:00'
+             },
+    'end': {
+           'dateTime': '2011-06-12T10:25:00.000-07:00'
+           }
+    }
 cal = calap.list_calendars()[0]
-print 'New event ID', calap.add_event(cal, event)
+newEventId = calap.add_event(cal, event)
+print 'New event ID', newEventId
+
+print '\nremove_event'
+print '************'
+cal = calap.list_calendars()[0]
+print 'Event deletion (1/0)', calap.remove_event(cal, newEventId)
 
 print '\n'

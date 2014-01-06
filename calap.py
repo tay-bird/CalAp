@@ -52,7 +52,11 @@ class CalAp():
         return created_event['id']
 
     def remove_event(self, calendarId, eventId):
-        pass
+        try:
+            self.service.events().delete(calendarId=calendarId, eventId=eventId).execute()
+            return 1
+        except:
+            return 0
 
 
 # Provides utilities for Event objects through the CalAp.get_events function.
@@ -60,7 +64,10 @@ class Event:
 
     def __init__(self, event):
         self.summary = event['summary']
-        self.description = event['description']
+        try:
+            self.description = event['description']
+        except:
+            self.description = None
         try:
             _start = event['start']['dateTime']
             _end = event['end']['dateTime']
