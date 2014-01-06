@@ -7,6 +7,7 @@ class CalAp():
     def __init__(self):
         self.service = main()
 
+    # Returns a list of calendars formatted as calendar objects.
     def list_calendars(self):
         page_token = None
         results = []
@@ -19,6 +20,7 @@ class CalAp():
                 break
         return results
 
+    # Returns a list of events formatted as strings.
     def list_events(self, calendarId):
         page_token = None
         results = []
@@ -43,6 +45,15 @@ class CalAp():
             if not page_token:
                 break
         return results
+
+    # Adds an event to the calendar.
+    def add_event(self, calendarId, event):
+        created_event = self.service.events().insert(calendarId=calendarId, body=event).execute()
+        return created_event['id']
+
+    def remove_event(self, calendarId, eventId):
+        pass
+
 
 # Provides utilities for Event objects through the CalAp.get_events function.
 class Event:

@@ -38,5 +38,9 @@ for event in events:
     print 'Event End Time   ', event.endTime
     print '\n'
 
+print '\nadd_event'
+print '*********'
+cal = calap.list_calendars()[0]
+print 'New event ID', calap.add_event(cal, event)
 
 print '\n'

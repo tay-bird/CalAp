@@ -15,11 +15,15 @@ Import the app with `from calap import CalAp` and initialize it with `calap = Ca
 ### list_calendars()
 Returns all calendars as a list of `calendar` objects.
 
-### list_events(calendar)
-Returns names of all events in a given `calendar` as a list of strings. 
+### list_events(calendarId)
+Returns names of all events in a given calendar as a list of strings. 
 
-### get_events(calendar)
-Returns all events in a given `calendar` as a list of `Event` objects.
+### get_events(calendarId)
+Returns all events in a given calendar as a list of Event objects.
+
+### add_event(calendarId, event)
+Creates an event in a given calendar from a given Event object.
+
 
 ### Event objects
 Event objects are returned by `get_events()` and have the following properties:
