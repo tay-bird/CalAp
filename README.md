@@ -3,9 +3,10 @@ CalAp
 
 API wrapper for Google Calendar with OAuth 2 authentication
 
-These project files must be placed in the Google Calendar API Quickstart Application directory.
-
-This app may be downloaded from: https://developers.google.com/google-apps/calendar/get_started
+This project requires a `client_secrets.json` file. This file is may be obtained
+from google at: https://developers.google.com/google-apps/calendar/get_started.
+Using the Quickstart Configuration tool, select Python/Command Line and create a
+new project. Download the client secrets file.
 
 ## Usage
 
@@ -21,7 +22,7 @@ Returns names of all events in a given `calendar` as a list of strings.
 Returns all events in a given `calendar` as a list of `Event` objects.
 
 ### Event objects
-Event objects are returned by `get_events` and have the following properties:
+Event objects are returned by `get_events()` and have the following properties:
 
 - summary
 - description
