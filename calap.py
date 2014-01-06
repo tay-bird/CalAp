@@ -47,7 +47,7 @@ class CalAp():
         return results
         
     # Returns an Event object representing the given event ID.
-    def get_event(self, calendarId, eventId)
+    def get_event(self, calendarId, eventId):
         event = self.service.events().get(calendarId=calendarId, eventId=eventId).execute()
         return Event(event)
 
