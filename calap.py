@@ -56,6 +56,7 @@ class CalAp():
         created_event = self.service.events().insert(calendarId=calendarId, body=event).execute()
         return created_event['id']
 
+    # Removes an event from the calendar.
     def remove_event(self, calendarId, event):
         try:
             self.service.events().delete(calendarId=calendarId, eventId=event.id).execute()
