@@ -28,15 +28,15 @@ print '**********'
 cal = calap.list_calendars()[0]
 events = calap.get_events(cal)
 for event in events:
-    print event
-    try:
-        startTime = event['start'][u'dateTime']
-    except KeyError:
-        startTime = event['start']
-    date = datetime.strptime(startTime.split("T")[0], '%Y-%m-%d')
-    time = startTime.split("T")[1].split("-")[0]
-    print date.year, date.month, date.day
-    print time
+    print 'Event Object     ', event
+    print 'Event Name       ', event.summary
+    print 'Event Description', event.description
+    print 'Event All Day?   ', event.allday
+    print 'Event Start Date ', event.startDate
+    print 'Event Start Time ', event.startTime
+    print 'Event End Date   ', event.endDate
+    print 'Event End Time   ', event.endTime
+    print '\n'
 
 
 print '\n'

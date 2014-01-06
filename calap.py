@@ -31,14 +31,42 @@ class CalAp():
                 break
         return results
     
+    # Returns a dictionary of events formatted as Event objects.
     def get_events(self, calendarId):
         page_token = None
         results = []
         while True:
             events = self.service.events().list(calendarId=calendarId, pageToken=page_token).execute()
             for event in events['items']:
-                results.append(event)
+                results.append(Event(event))
             page_token = events.get('nextPageToken')
             if not page_token:
                 break
         return results
+
+# Provides utilities for Event objects through the CalAp.get_events function.
+class Event:
+
+    def __init__(self, event):
+        self.summary = event['summary']
+        self.description = event['description']
+        try:
+            _start = event['start']['dateTime']
+            _end = event['end']['dateTime']
+            self.startDate = _start.split("T")[0]
+            self.startTime = _start.split("T")[1].split("-")[0]
+            self.endDate = _end.split("T")[0]
+            self.endTime = _end.split("T")[1].split("-")[0]
+            self.allday = False
+        except:
+            _start = event['start']['date']
+            _end = event['end']['date']
+            self.startDate = _start
+            self.startTime = None
+            self.endDate = _end
+            self.endTime = None
+            self.allday = True
+
+
+    def __repr__(self):
+        return '%s(%s)' % (self.__class__, self.summary)
