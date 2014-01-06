@@ -51,9 +51,9 @@ class CalAp():
         created_event = self.service.events().insert(calendarId=calendarId, body=event).execute()
         return created_event['id']
 
-    def remove_event(self, calendarId, eventId):
+    def remove_event(self, calendarId, event):
         try:
-            self.service.events().delete(calendarId=calendarId, eventId=eventId).execute()
+            self.service.events().delete(calendarId=calendarId, eventId=event.id).execute()
             return 1
         except:
             return 0
@@ -63,6 +63,7 @@ class CalAp():
 class Event:
 
     def __init__(self, event):
+        self.id = event['id']
         self.summary = event['summary']
         try:
             self.description = event['description']
