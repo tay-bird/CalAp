@@ -13,13 +13,16 @@ new project. Download the client secrets file.
 Import the app with `from calap import CalAp` and initialize it with `calap = CalAp()`.
 
 ### list_calendars()
-Returns all calendars as a list of `calendar` objects.
+Returns all calendars as a list of calendar objects.
 
 ### list_events(calendarId)
 Returns names of all events in a given calendar as a list of strings. 
 
 ### get_events(calendarId)
 Returns all events in a given calendar as a list of Event objects.
+
+### get_event(calendarId, eventId)
+Returns an event matching a given eventId as an Event object.
 
 ### add_event(calendarId, event)
 Creates an event in a given calendar from a given Event object.
@@ -31,6 +34,7 @@ Removes an event in a given calendar from a given eventId.
 ### Event objects
 Event objects are returned by `get_events()` and have the following properties:
 
+- id
 - summary
 - description
 - allday
