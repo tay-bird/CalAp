@@ -24,6 +24,9 @@ Returns all events in a given calendar as a list of Event objects.
 ### add_event(calendarId, event)
 Creates an event in a given calendar from a given Event object.
 
+### remove_event(calendarId, eventId)
+Removes an event in a given calendar from a given eventId.
+
 
 ### Event objects
 Event objects are returned by `get_events()` and have the following properties:
