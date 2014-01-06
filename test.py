@@ -29,6 +29,7 @@ cal = calap.list_calendars()[0]
 events = calap.get_events(cal)
 for event in events:
     print 'Event Object     ', event
+    print 'Event ID         ', event.id
     print 'Event Name       ', event.summary
     print 'Event Description', event.description
     print 'Event All Day?   ', event.allday
@@ -37,6 +38,22 @@ for event in events:
     print 'Event End Date   ', event.endDate
     print 'Event End Time   ', event.endTime
     print '\n'
+    
+print '\nget_event'
+print '*********'
+cal = calap.get_event(cal, eventId)[0]
+eventId = calap.get_events(cal)[0].id
+event = calap.get_event(cal, eventId)
+print 'Event Object     ', event
+print 'Event ID         ', event.id
+print 'Event Name       ', event.summary
+print 'Event Description', event.description
+print 'Event All Day?   ', event.allday
+print 'Event Start Date ', event.startDate
+print 'Event Start Time ', event.startTime
+print 'Event End Date   ', event.endDate
+print 'Event End Time   ', event.endTime
+print '\n'
 
 print '\nadd_event'
 print '*********'
@@ -57,6 +74,7 @@ print 'New event ID', newEventId
 print '\nremove_event'
 print '************'
 cal = calap.list_calendars()[0]
-print 'Event deletion (1/0)', calap.remove_event(cal, newEventId)
+event = calap.get_event(cal, newEventId)
+print 'Event deletion (1/0)', calap.remove_event(cal, event)
 
 print '\n'
