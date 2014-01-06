@@ -15,6 +15,8 @@ Run the sample app by running `python test.py` from the CalAp directory.
 Import the app into your projectwith `from calap import CalAp` and initialize
 it with `calap = CalAp()`.
 
+## API
+
 ### list_calendars()
 Returns all calendars as a list of calendar objects.
 
