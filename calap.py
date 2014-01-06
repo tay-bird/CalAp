@@ -45,6 +45,11 @@ class CalAp():
             if not page_token:
                 break
         return results
+        
+    # Returns an Event object representing the given event ID.
+    def get_event(self, calendarId, eventId)
+        event = self.service.events().get(calendarId=calendarId, eventId=eventId).execute()
+        return Event(event)
 
     # Adds an event to the calendar.
     def add_event(self, calendarId, event):
