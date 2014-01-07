@@ -33,7 +33,7 @@ Returns an event matching a given eventId as an Event object.
 Creates an event in a given calendar from a given Event object.
 
 ### remove_event(calendarId, eventId)
-Removes an event in a given calendar from a given eventId.
+Removes a given Event object from a given calendar.
 
 
 ### Event objects
