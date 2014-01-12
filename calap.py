@@ -1,11 +1,19 @@
-#! /usr/bin/env python
-
 from api_app import main
+
+
+####################
+# Main CalAp class #
+####################
 
 class CalAp():
     
     def __init__(self):
         self.service = main()
+
+
+    ####################
+    # Calendar queries #
+    ####################
 
     # Returns a list of calendars formatted as calendar objects.
     def list_calendars(self):
@@ -50,6 +58,11 @@ class CalAp():
     def get_event(self, calendarId, eventId):
         event = self.service.events().get(calendarId=calendarId, eventId=eventId).execute()
         return Event(event)
+    
+
+    ####################
+    # Calendar actions #
+    ####################
 
     # Adds an event to the calendar.
     def add_event(self, calendarId, event):
@@ -64,6 +77,10 @@ class CalAp():
         except:
             return 0
 
+
+###############
+# Event class #
+###############
 
 # Provides utilities for Event objects through the CalAp.get_events function.
 class Event:
